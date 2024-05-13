@@ -43,3 +43,20 @@ input,select{
     border: none;
     border-bottom: 1px solid black;
 }
+
+#document-type {
+    width: 94px;
+}
+
+#dni {
+    width: 190px;
+    margin-top: 200px;
+}
+
+#celular {
+    width: 115px;
+}
+
+#fechaNacimiento {
+    width: 160px;
+}

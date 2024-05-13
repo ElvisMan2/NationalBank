@@ -4,30 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Bank</title>
-    <link rel="stylesheet" href="registgroStyle.css">
+    <link rel="stylesheet" href="./registgroStyle.css">
 </head>
 <body>
     <div class="card">
         <form id="registro">
             <div>
-                <select id="document-type" name="document-type" style="width: 94px;" required>
+                <select id="document-type" name="document-type" required>
                     <option value="DNI">DNI</option>
-                    <option value="Carnet de Extranjeria" >Carnet de Extranjeria</option>
+                    <option value="Carnet de Extranjeria">Carnet de Extranjeria</option>
                 </select>
-                <input type="text" id="dni" name="dni" style="width: 190px;margin-top: 200px;" required placeholder="número de documento">
-            <input type="text" id="nombre" name="nombre" required placeholder="Nombres completos">
-            <input type="text" id="apellidos" name="apellidos" required placeholder="Apellidos completos">
-            <input type="text" id="correo" name="correo" required placeholder="Correo electrónico">
-
-            <div>
-                <input type="text" id="celular" name="celular" placeholder="Celular" required style="width:115px ;">
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="Fecha de nacimiento" required style="width:160px ;">
-            <input type="password" id="password" name="password" required placeholder="Clave web">
-            <input type="password" id="passwordConfirmed" name="passwordConfirmen" required placeholder="Confirmar clave web">
-            <button type="submit" id="registrar">Registrar</button>
-    
+                <input type="text" id="dni" name="dni" required placeholder="Número de documento">
+                <input type="text" id="nombre" name="nombre" required placeholder="Nombres completos">
+                <input type="text" id="apellidos" name="apellidos" required placeholder="Apellidos completos">
+                <input type="text" id="correo" name="correo" required placeholder="Correo electrónico">
+                <input type="text" id="celular" name="celular" placeholder="Celular" required>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                <input type="password" id="password" name="password" required placeholder="Clave web">
+                <input type="password" id="passwordConfirmed" name="passwordConfirmen" required placeholder="Confirmar clave web">
+                <button type="submit" id="registrar">Registrar</button>
+            </div>
         </form>
-
     </div>
 </body>
 </html>

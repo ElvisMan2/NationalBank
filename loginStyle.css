@@ -50,3 +50,28 @@ input,select{
     border: none;
     border-bottom: 1px solid black;
 }
+
+
+
+#document-type {
+    width: 94px;
+}
+
+#dni {
+    width: 190px;
+    margin-bottom: 40px;
+    margin-top: 200px;
+}
+
+
+
+img {
+    margin-bottom: 40px;
+}
+
+
+
+a {
+    text-align: center;
+    margin-bottom: 30px;
+}
