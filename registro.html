@@ -20,7 +20,7 @@
                 <input type="text" id="apellidos" name="apellidos" required placeholder="Apellidos completos">
                 <input type="email" id="correo" name="correo" required placeholder="Correo electrónico">
                 <input type="text" id="celular" name="celular" placeholder="Celular" required>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                <input type="text" id="fechaNacimiento" name="fechaNacimiento" required placeholder="Fecha de nacimiento" onfocus="this.type='date'" onblur="this.type='text'">
                 <input type="password" id="password" name="password" required placeholder="Clave web">
                 <input type="password" id="passwordConfirmed" name="passwordConfirmed" required placeholder="Confirmar clave web">
                 <span id="error-message" class="error-message"></span>
