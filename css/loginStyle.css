@@ -10,6 +10,7 @@ body {
     background-color: rgba(255, 255, 255, 0.9); /* Se aplica opacidad solo al fondo */
     border-radius: 20px;
     box-shadow: 0 0 20px black;
+    text-align: center;
 }
 
 .card button {
@@ -60,7 +61,7 @@ input,select{
 #dni {
     width: 190px;
     margin-bottom: 40px;
-    margin-top: 200px;
+
 }
 
 
@@ -69,7 +70,9 @@ img {
     margin-bottom: 40px;
 }
 
-
+#logo{
+    margin-top: 20px;
+}
 
 a {
     text-align: center;
