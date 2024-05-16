@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Bank</title>
     <link rel="stylesheet" href="./css/loginStyle.css">
-
 </head>
 <body>
     <div class="card">
         <img id="logo" src="./images/logo.png" alt="">
-        <form id="login">
+        <form id="login" onsubmit="return validateForm(event)">
             <div>
                 <select id="document-type" name="document-type" required>
                     <option value="DNI">DNI</option>
@@ -23,12 +22,14 @@
                 <input type="checkbox" id="remember" name="remember">
                 <label for="remember">Recordar datos</label><br>
             </div>
+            <span id="error-message" class="error-message"></span>
             <img src="./images/imnotarobot.png">
-            <button type="submit" id="ingresar" onclick="window.location.href='menu.html'">Ingresar</button><br>
+            <button type="submit" id="ingresar">Ingresar</button><br>
             <a href="#">¿Olvidaste tu clave web?</a>
             <img src="./images/line.png">
-            <button type="submit" id="registrar" onclick="window.location.href='registro.html'">Registrar</button><br>
+            <button type="button" id="registrar" onclick="window.location.href='registro.html'">Registrar</button><br>
         </form>
     </div>
+    <script src="./js/validation.js"></script>
 </body>
 </html>
