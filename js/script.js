@@ -7,7 +7,7 @@ function htmlAjax(nombreArchivo, idhtml){
         if(this.readyState==4 && this.status==200){
             
             document.getElementById(idhtml).innerHTML=this.responseText;
-            
+              
         }
     }
 
