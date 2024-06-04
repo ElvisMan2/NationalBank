@@ -3,37 +3,72 @@ document.addEventListener('DOMContentLoaded', () => {
     loginForm.addEventListener('submit', validateForm);
 });
 
-function validateForm(event) {
+async function validateForm(event) {
     event.preventDefault();
+
     const documentType = document.getElementById('document-type').value;
     const dni = document.getElementById('dni').value.trim();
     const password = document.getElementById('password').value.trim();
     const errorMessage = document.getElementById('error-message');
-    
-    errorMessage.textContent = ''; 
+
+    errorMessage.textContent = '';
 
     let valid = true;
 
     if (!dni) {
-        errorMessage.textContent = 'El número de documento es obligatorio.';
+        showError(errorMessage, 'El número de documento es obligatorio.');
         valid = false;
-    } else if (documentType === 'DNI' && !/^\d{8}$/.test(dni)) {
-        errorMessage.textContent = 'El DNI debe tener 8 dígitos.';
-        valid = false;
-    } else if (documentType === 'Carnet de Extranjeria' && !/^[a-zA-Z0-9]{9}$/.test(dni)) {
-        errorMessage.textContent = 'El Carnet de Extranjería debe tener 9 caracteres.';
+    } else if (!isValidDNI(documentType, dni)) {
+        showError(errorMessage, 'El número de documento no es válido.');
         valid = false;
     }
 
     if (!password) {
-        errorMessage.textContent = 'La clave web es obligatoria.';
+        showError(errorMessage, 'La clave web es obligatoria.');
         valid = false;
     }
 
     if (valid) {
-        // Redirect to menu.html
-        window.location.href = 'menu.html';
+        try {
+            const user = await loginUser(dni, password);
+            console.log(user);
+            storeUserData(user);
+            window.location.href = 'menu.html';
+        } catch (error) {
+            showError(errorMessage, 'Error en el inicio de sesión: ' + error.message);
+        }
     }
 
-    return false;
+    return valid;
+}
+
+function showError(element, message) {
+    element.textContent = message;
+}
+
+function isValidDNI(documentType, dni) {
+    return (documentType === 'DNI' && /^\d{8}$/.test(dni)) ||
+        (documentType === 'Carnet de Extranjeria' && /^[a-zA-Z0-9]{9}$/.test(dni));
+}
+
+async function loginUser(dni, password) {
+    const response = await fetch('http://167.71.97.221:8080/api/user/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            numIdentification: dni,
+            password: password
+        })
+    });
+
+    if (!response.ok) {
+        throw new Error('Login failed');
+    }
+    return response.json();
+}
+
+function storeUserData(user) {
+    localStorage.setItem('user', JSON.stringify(user));
 }

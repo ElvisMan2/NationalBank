@@ -3,19 +3,20 @@ document.addEventListener('DOMContentLoaded', () => {
     registroForm.addEventListener('submit', validateForm);
 });
 
-function validateForm(event) {
+async function validateForm(event) {
     event.preventDefault();
+
     const documentType = document.getElementById('document-type').value;
     const dni = document.getElementById('dni').value.trim();
     const nombre = document.getElementById('nombre').value.trim();
     const apellidos = document.getElementById('apellidos').value.trim();
     const correo = document.getElementById('correo').value.trim();
     const celular = document.getElementById('celular').value.trim();
-    const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+    const fechaNacimiento = document.getElementById('fechaNacimiento').value.trim();
     const password = document.getElementById('password').value.trim();
     const passwordConfirmed = document.getElementById('passwordConfirmed').value.trim();
     const errorMessage = document.getElementById('error-message');
-    
+
     errorMessage.textContent = '';
 
     let valid = true;
@@ -77,9 +78,37 @@ function validateForm(event) {
     }
 
     if (valid) {
-        showModal();
-    }
+        const user = {
+            numIdentification: dni,
+            firstName: nombre,
+            lastName: apellidos,
+            email: correo,
+            phone: celular,
+            birthDate: fechaNacimiento,
+            password: password
+        };
 
+        try {
+            const response = await fetch('http://167.71.97.221:8080/api/user/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(errorText || 'Registration failed');
+            }
+
+            console.log(response.body);
+
+            showModal();
+        } catch (error) {
+            errorMessage.textContent = 'Error en el registro: ' + error.message;
+        }
+    }
     return false;
 }
 
@@ -102,7 +131,7 @@ function showModal() {
     setTimeout(() => {
         modal.style.display = 'none';
         window.location.href = 'index.html';
-    }, 3000); 
+    }, 3000);
 }
 
 function closeModal() {
