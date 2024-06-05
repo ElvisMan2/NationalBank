@@ -71,4 +71,6 @@ async function loginUser(dni, password) {
 
 function storeUserData(user) {
     localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('userId', user.id);
+    localStorage.setItem('userPassword', user.password);
 }
