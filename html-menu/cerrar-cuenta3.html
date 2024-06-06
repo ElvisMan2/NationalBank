@@ -54,9 +54,13 @@
 </style>
 
 <script>
+
+    const rutalocal = 'http://localhost:8080';
+    const rutaserver = 'http://167.71.97.221:8080';
+
     document.getElementById('cerrar-cuenta3').addEventListener('click',async ()=>{
         cuentaCerrar=localStorage.getItem('cuentaCerrar');
-                const url ='http://167.71.97.221:8080/api/bankAccount/'+cuentaCerrar;
+                const url = `${rutaserver}/api/bankAccount/${cuentaCerrar}`;
                 const data = {
                     "status": "CERRADA"
                 };
