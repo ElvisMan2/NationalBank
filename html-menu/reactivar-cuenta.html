@@ -74,8 +74,8 @@
 </style>
 
 <script>
-    document.getElementById('reactivar-cuenta').addEventListener('click', function(e){
-        e.preventDefault();
+    document.getElementById('reactivar-cuenta').addEventListener('click', ()=>{
+        
         const cuentaReactivar = document.getElementById('accountSelect').value;
         
         password=localStorage.getItem('userPassword');

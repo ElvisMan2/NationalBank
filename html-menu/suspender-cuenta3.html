@@ -54,25 +54,31 @@
 </style>
 
 <script>
-    document.getElementById('suspender-cuenta3').addEventListener('click', ()=> {
-        cuentaEliminar=localStorage.getItem('cuentaEliminar');
+    document.getElementById('suspender-cuenta3').addEventListener('click',async ()=> {
+        cuentaSuspender=localStorage.getItem('cuentaSuspender');
 
-                const url ='http://167.71.97.221:8080/api/bankAccount/'+cuentaEliminar;
+                const url ='http://167.71.97.221:8080/api/bankAccount/'+cuentaSuspender;
                 const data = {
                     "status": "SUSPENDIDA"
                 };
-                fetch(url, {
+
+                const response= await fetch(url, {
                     method: 'PUT',
                     body: JSON.stringify(data),
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 })
-                .then(response => {
-                    // handle the response here
-                    localStorage.removeItem('cuentaEliminar');
+                if (!response.ok) {
+                    throw new Error('Error al suspender la cuenta');
+                    
+                }
+                else{
+                    localStorage.removeItem('cuentaSuspender');
+                    await updateUserLocalData();
                     htmlAjax('suspender-cuenta4.html','info');
-                })
+                }
+
 
         
     });

@@ -54,36 +54,29 @@
 </style>
 
 <script>
-    document.getElementById('reactivar-cuenta2').addEventListener("click", (event) => {
-        event.preventDefault();
+    document.getElementById('reactivar-cuenta2').addEventListener("click", async () => {
 
-        let cuentaReactivar = localStorage.getItem('cuentaReactivar');
-        if (!cuentaReactivar) {
-            console.error('No se encontró la cuenta a reactivar');
-            return;
-        }
+        let cuentaReactivar = await localStorage.getItem('cuentaReactivar');
 
         const url = 'http://167.71.97.221:8080/api/bankAccount/' + cuentaReactivar;
         const data = {
             "status": "ACTIVE"
         };
 
-        fetch(url, {
+        const response = await fetch(url, {
             method: 'PUT',
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
             }
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error en la reactivación de la cuenta');
-            }
-            localStorage.removeItem('cuentaReactivar');
-            htmlAjax('reactivar-cuenta3.html', 'info');
-        })
-        .catch(error => {
-            console.error('Hubo un problema con la operación fetch:', error);
-        });
+
+        if (!response.ok) {
+            throw new Error('Error en la reactivación de la cuenta');
+        }
+
+        localStorage.removeItem('cuentaReactivar');
+        await updateUserLocalData();
+        htmlAjax('reactivar-cuenta3.html', 'info');
     });
 </script>

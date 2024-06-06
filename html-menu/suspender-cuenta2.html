@@ -62,24 +62,16 @@
 
 </style>
 <script>
-    document.getElementById('suspender-cuenta2').addEventListener('click', ()=>{
-    
-        function getUserData() {
-        const userData = localStorage.getItem('user');
-        return userData ? JSON.parse(userData) : null;
-        }
-
-        const user = getUserData();
+    document.getElementById('suspender-cuenta2').addEventListener('click', async ()=>{
+        const user = getUserLocalData();
 
         if (user.password == document.getElementById('pin').value) {
-            htmlAjax('suspender-cuenta3.html','info');
+            await htmlAjax('suspender-cuenta3.html','info');
         } else {
             if (document.getElementById('pin').value == '') {
                 alert('Debe ingresar una clave');
             } else alert('Clave incorrecta');
         }
-
-
     });
 
 </script>

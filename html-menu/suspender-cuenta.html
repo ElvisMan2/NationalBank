@@ -81,7 +81,7 @@
 <script>
     document.getElementById('suspender-cuenta').addEventListener('click',()=>{
         idCuenta=document.getElementById('accountSelect').value;
-        localStorage.setItem('cuentaEliminar', idCuenta);//se almacenará el número de cuenta en el localStorage
+        localStorage.setItem('cuentaSuspender', idCuenta);//se almacenará el número de cuenta en el localStorage
         htmlAjax('suspender-cuenta2.html','info')
     })
 </script>

@@ -37,3 +37,5 @@ async function htmlAjax(url, id) {
         console.error('Error al cargar el contenido:', error);
     }
 }
+
+
