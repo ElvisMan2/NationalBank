@@ -55,7 +55,7 @@ function isValidDNI(documentType, dni) {
 }
 
 async function loginUser(dni, password) {
-    const response = await fetch(`${rutalocal}/api/user/login`, {
+    const response = await fetch(`${rutaserver}/api/user/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

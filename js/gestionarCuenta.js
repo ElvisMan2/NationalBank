@@ -9,7 +9,7 @@ function getUserLocalData() {
 
 async function updateUserLocalData() {
     const userId = localStorage.getItem('userId');
-    const url = `'${rutalocal}/api/user/'${userId}`;
+    const url = `'${rutaserver}/api/user/'${userId}`;
     const response = await fetch(url, {
         method: 'GET',
         headers: {

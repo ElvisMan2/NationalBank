@@ -91,9 +91,9 @@ async function validateForm(event) {
             birthDate: fechaNacimiento,
             password: password
         };
-        
+
         try {
-            const response = await fetch(`${rutalocal}/api/user/register`, {
+            const response = await fetch(`${rutaserver}/api/user/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
