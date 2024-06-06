@@ -54,14 +54,11 @@
 </style>
 
 <script>
-    const rutalocal = 'http://localhost:8080';
-    const rutaserver = 'http://167.71.97.221:8080';
-
     document.getElementById('reactivar-cuenta2').addEventListener("click", async () => {
 
         let cuentaReactivar = await localStorage.getItem('cuentaReactivar');
 
-        const url= `${rutaserver}/api/bankAccount/${cuentaReactivar}`;
+        const url = 'http://167.71.97.221:8080/api/bankAccount/' + cuentaReactivar;
         const data = {
             "status": "ACTIVE"
         };
