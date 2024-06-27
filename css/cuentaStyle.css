@@ -43,14 +43,6 @@ body {
     border-radius: 10px;
 }
 
-main{
-    background-color: #EFF5FF;
-    height: 600px;
-    margin-top: 60px;
-    margin-bottom: 60px;
-    text-align: center;
-}
-
 footer {
     background-color: #0842C5;
     color: white;
@@ -58,6 +50,13 @@ footer {
     padding: 20px 0;
 }
 
+main{
+    background-color: #EFF5FF;
+    height: 600px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+}
 
 .menu {
     width: 520px;

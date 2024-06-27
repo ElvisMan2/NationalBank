@@ -81,7 +81,7 @@
 
         // Verificar si los valores coinciden
         if (pin === confirmarPin && pin === user.password) {
-            const url = 'http://167.71.97.221:8080/api/bankAccount/create/' + user.id;
+            const url = 'http://104.248.7.1:8080/api/bankAccount/create/' + user.id;
             response= await fetch(url, {
                 method: 'POST',
                 body: JSON.stringify({}),

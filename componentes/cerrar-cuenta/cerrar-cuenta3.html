@@ -56,7 +56,7 @@
 <script>
     document.getElementById('cerrar-cuenta3').addEventListener('click',async ()=>{
         cuentaCerrar=localStorage.getItem('cuentaCerrar');
-                const url ='http://167.71.97.221:8080/api/bankAccount/'+cuentaCerrar;
+                const url ='http://104.248.7.1:8080/api/bankAccount/'+cuentaCerrar;
                 const data = {
                     "status": "CERRADA"
                 };

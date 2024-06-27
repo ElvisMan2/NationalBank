@@ -89,7 +89,7 @@ async function validateForm(event) {
         };
 
         try {
-            const response = await fetch('http://167.71.97.221:8080/api/user/register', {
+            const response = await fetch('http://104.248.7.1:8080/api/user/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -6,7 +6,7 @@ function getUserLocalData() {
 
 async function updateUserLocalData() {
   const userId = localStorage.getItem('userId');
-  const url = 'http://167.71.97.221:8080/api/user/' + userId;
+  const url = 'http://104.248.7.1:8080/api/user/' + userId;
 
     const response = await fetch(url, {
       method: 'GET',
