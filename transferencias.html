@@ -147,11 +147,14 @@ const selectedOption = document.querySelector('input[name="transferType"]:checke
 
     const url = `http://104.248.7.1:8080/api/transaction/transfer/${userId}`;
     const data = {
-        amount: montoTransferir,
-        fromAccount: cuentaOrigen,
-        toAccount: cuentaDestino
+        "fromAccount": {
+            "accountNumber": cuentaOrigen,
+        },
+        "toAccount": {
+            "accountNumber": cuentaDestino,
+        },
+        "amount": parseFloat(montoTransferir),
     };
-
     try {
         const response = await fetch(url, {
             method: 'POST',
